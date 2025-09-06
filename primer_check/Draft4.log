@@ -1,0 +1,20 @@
+LTspice 24.1.9 for Windows
+Circuit: C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\Draft4.net
+Start Time: Fri Sep  5 18:52:30 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 103.479 seconds.
+
+Files loaded:
+C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\Draft4.net
+C:\users\fadelrio\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\mje2955.lib
+
+Measurement "vo1rc" FAIL'ed
+vo2rc: V(Vo)=5.00263500214 at 5
+Measurement "io1rc" FAIL'ed
+io2rc: I(RL)=1.00052702427 at 5
