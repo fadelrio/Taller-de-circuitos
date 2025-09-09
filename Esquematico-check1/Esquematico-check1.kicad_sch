@@ -1034,12 +1034,6 @@
 		(uuid "506e3b26-caff-4c90-9bd7-9bb248ea4aed")
 	)
 	(junction
-		(at 80.01 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "52c601d5-380a-445b-aa4b-6af928ed70e4")
-	)
-	(junction
 		(at 80.01 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1062,12 +1056,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "81540e89-7796-4f4c-8338-d2844b75f5ce")
-	)
-	(junction
-		(at 80.01 115.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8d98754d-e774-4c42-bb54-21de41e47633")
 	)
 	(junction
 		(at 139.7 76.2)
@@ -1134,16 +1122,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fe2af6b6-2fcf-4149-a0e4-3f6773812b29")
-	)
-	(wire
-		(pts
-			(xy 80.01 102.87) (xy 80.01 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0bf48d23-b57a-4c37-bebc-5c2ea3c5cd84")
 	)
 	(wire
 		(pts
@@ -1237,16 +1215,6 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 129.54) (xy 71.12 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27303f00-a255-4841-87c6-a213832392b1")
-	)
-	(wire
-		(pts
 			(xy 189.23 81.28) (xy 189.23 74.93)
 		)
 		(stroke
@@ -1327,16 +1295,6 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 113.03) (xy 80.01 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4fcb17c4-9458-4467-bde8-e0b4d7b5f155")
-	)
-	(wire
-		(pts
 			(xy 175.26 93.98) (xy 175.26 95.25)
 		)
 		(stroke
@@ -1344,6 +1302,16 @@
 			(type default)
 		)
 		(uuid "56761f0a-31d1-40d6-903d-a3271d4f174b")
+	)
+	(wire
+		(pts
+			(xy 80.01 102.87) (xy 80.01 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59d15299-3a4b-40d4-b346-94484e8e081f")
 	)
 	(wire
 		(pts
@@ -1367,6 +1335,16 @@
 	)
 	(wire
 		(pts
+			(xy 73.66 115.57) (xy 80.01 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63f504b3-f86c-4b53-baf9-d8d9ff645050")
+	)
+	(wire
+		(pts
 			(xy 189.23 64.77) (xy 189.23 50.8)
 		)
 		(stroke
@@ -1374,26 +1352,6 @@
 			(type default)
 		)
 		(uuid "65fc86ca-2e60-419a-8ddf-10375b70828a")
-	)
-	(wire
-		(pts
-			(xy 80.01 115.57) (xy 80.01 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69286cc2-179d-4680-bcdb-9080ab62666d")
-	)
-	(wire
-		(pts
-			(xy 80.01 130.81) (xy 80.01 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c9663c3-4113-466d-9531-d88c9021fcfc")
 	)
 	(wire
 		(pts
@@ -1534,16 +1492,6 @@
 			(type default)
 		)
 		(uuid "a4e13edb-ed50-4971-a7e4-6f9d25bd54b9")
-	)
-	(wire
-		(pts
-			(xy 73.66 115.57) (xy 80.01 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5228a51-fa75-4e51-94fb-566a50919399")
 	)
 	(wire
 		(pts
@@ -1737,16 +1685,6 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 129.54) (xy 80.01 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f554f9db-df00-4371-bf25-0626c8ec8a90")
-	)
-	(wire
-		(pts
 			(xy 163.83 105.41) (xy 189.23 105.41)
 		)
 		(stroke
@@ -1754,76 +1692,6 @@
 			(type default)
 		)
 		(uuid "f82af9a5-80b0-4f51-a1db-d0c2b7b5cdb8")
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 80.01 124.46 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "105fbe86-ac0b-4a8b-bd7e-d01021e4fb67")
-		(property "Reference" "R9"
-			(at 82.55 123.1899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R"
-			(at 82.55 125.7299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.232 124.46 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 80.01 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 80.01 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "e1897cc7-b9da-4b04-947f-74630f48a44e")
-		)
-		(pin "1"
-			(uuid "feece283-b678-4d0c-b912-26a658f7333e")
-		)
-		(instances
-			(project "Esquematico-check1"
-				(path "/f9400a4d-2b42-400b-b70b-8f58c3eb7ffc"
-					(reference "R9")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -2256,72 +2124,6 @@
 			(project "Esquematico-check1"
 				(path "/f9400a4d-2b42-400b-b70b-8f58c3eb7ffc"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 80.01 130.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "53810fe4-5cd6-4d0b-b39a-16b597c544a1")
-		(property "Reference" "#PWR06"
-			(at 80.01 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 80.01 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 80.01 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 80.01 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 80.01 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2b39644d-8f34-44af-bc6f-d4de16beffe0")
-		)
-		(instances
-			(project "Esquematico-check1"
-				(path "/f9400a4d-2b42-400b-b70b-8f58c3eb7ffc"
-					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -2817,6 +2619,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 71.12 129.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a36de9ae-20f9-4343-9135-23e8d33002dc")
+		(property "Reference" "#PWR06"
+			(at 71.12 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 71.12 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 71.12 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f0dc6fb4-872d-4857-a20c-c5e979ccb52c")
+		)
+		(instances
+			(project ""
+				(path "/f9400a4d-2b42-400b-b70b-8f58c3eb7ffc"
+					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Transistor_BJT:BC547")
 		(at 171.45 76.2 0)
 		(unit 1)
@@ -2981,7 +2849,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "100"
 			(at 104.14 55.8799 0)
 			(effects
 				(font
@@ -3465,7 +3333,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "100"
 			(at 142.24 55.8799 0)
 			(effects
 				(font
@@ -3671,76 +3539,6 @@
 			(project ""
 				(path "/f9400a4d-2b42-400b-b70b-8f58c3eb7ffc"
 					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 80.01 109.22 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fdf5cb99-30c1-4571-a231-8dafc4a8b22c")
-		(property "Reference" "R10"
-			(at 82.55 107.9499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R"
-			(at 82.55 110.4899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.232 109.22 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 80.01 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 80.01 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "26d01045-f284-4a76-8ff4-135c4e383b37")
-		)
-		(pin "1"
-			(uuid "b9e7d5bd-41b1-46e7-b4ff-6941f11a1222")
-		)
-		(instances
-			(project "Esquematico-check1"
-				(path "/f9400a4d-2b42-400b-b70b-8f58c3eb7ffc"
-					(reference "R10")
 					(unit 1)
 				)
 			)
