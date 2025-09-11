@@ -1,6 +1,6 @@
 LTspice 24.1.9 for Windows
-Circuit: C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\Draft3.net
-Start Time: Fri Sep  5 16:08:35 2025
+Circuit: C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\primer_check\Draft3.net
+Start Time: Tue Sep  9 15:09:23 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -31,14 +31,13 @@ Gmin = 1.33182e-13
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 22.246 seconds.
+Total elapsed time: 139.745 seconds.
 
 Files loaded:
-C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\Draft3.net
+C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\primer_check\Draft3.net
 C:\users\fadelrio\AppData\Local\LTspice\lib\cmp\standard.bjt
-C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\mje2955.lib
+C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\primer_check\mje2955.lib
 
-vo1rc: V(Vo)=5.00268411636 at 100
-vo2rc: V(Vo)=5.00266839219 at 5
-io1rc: I(RL)=0.0500317946546 at 100
-io2rc: I(RL)=1.00076210582 at 5
+C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\primer_check\Draft3.net(37): Current not found.
+.meas OP Io1rc FIND I(RL) AT 100
+                    ^^^^^
