@@ -1800,7 +1800,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BC547"
+		(property "Value" "BC557"
 			(at 142.24 78.7401 0)
 			(effects
 				(font
@@ -2160,7 +2160,7 @@
 		(dnp no)
 		(uuid "86592af6-5d84-4d66-af6f-8f7972fc871c")
 		(property "Reference" "Q2"
-			(at 137.16 104.1399 0)
+			(at 136.652 108.712 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2169,7 +2169,7 @@
 			)
 		)
 		(property "Value" "BC547"
-			(at 137.16 106.6799 0)
+			(at 136.652 111.252 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2243,7 +2243,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BC547"
+		(property "Value" "BC557"
 			(at 114.3 78.7401 0)
 			(effects
 				(font
