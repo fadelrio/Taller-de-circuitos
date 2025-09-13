@@ -1,20 +1,16 @@
 LTspice 24.1.9 for Windows
 Circuit: C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\primer_check_2.net
-Start Time: Wed Sep 10 19:54:07 2025
+Start Time: Fri Sep 12 12:06:00 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
 temp = 27
 method = modified trap
 Direct Newton iteration for .op point succeeded.
-.step 
-Total elapsed time: 0.089 seconds.
+Total elapsed time: 0.055 seconds.
 
 Files loaded:
 C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\primer_check_2.net
 C:\users\fadelrio\AppData\Local\LTspice\lib\cmp\standard.bjt
 C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\tp\primer_check\mje2955.lib
 
-vo1rl: V(Vo)=5.02411365509 at 12
-vo2rl: V(Vo)=5.05844593048 at 24
-reglin: ((Vo2rl-Vo1rl)/12)=0.00286102294922

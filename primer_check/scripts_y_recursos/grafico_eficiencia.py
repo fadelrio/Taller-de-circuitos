@@ -14,7 +14,6 @@ from pathlib import Path
 
 # === CONFIGURACIÓN ===
 RUTA_ARCHIVO = "data_pot_vs_r_log.txt"   # <-- Cambiá esto
-GUARDAR_COMO = "grafico_eficiencia_vs_corriente.png"
 
 def es_float(s: str) -> bool:
     try:
@@ -88,8 +87,6 @@ def main():
     plt.title(r"Eficiencia vs $I_o$ ($V_{IN} = 9.5V)$")
     plt.grid(True, which="both", linestyle="--", alpha=0.5)
     plt.tight_layout()
-    plt.savefig(GUARDAR_COMO,format='png')
-    print(f"Gráfico guardado como: {GUARDAR_COMO}")
     plt.show()
 
 if __name__ == "__main__":
