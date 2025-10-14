@@ -1,6 +1,6 @@
-LTspice 24.1.9 for Windows
+LTspice 24.1.10 for Windows
 Circuit: C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\carga_electronica\MK1.net
-Start Time: Thu Oct  9 12:57:08 2025
+Start Time: Sat Oct 11 13:12:17 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -51,44 +51,46 @@ Source Step = 93.9394%
 vernier = 0.25
 Source Step = 93.75%
 Source Step = 95.6439%
-Source Step = 97.0644%
-Source Step = 97.1325%
-Source Step = 97.1621%
-Source Step = 97.1916%
-Source Step = 97.2212%
-Source Step = 97.2508%
+Source Step = 96.9815%
+vernier = 0.000976562
+Source Step = 96.9993%
+Source Step = 97.0289%
+Source Step = 97.0585%
+Source Step = 97.0881%
+Source Step = 97.1177%
 vernier = 0.00146484
-Source Step = 97.2893%
-Source Step = 97.3337%
-Source Step = 97.3781%
-Source Step = 97.4225%
-Source Step = 97.4669%
+Source Step = 97.1591%
+Source Step = 97.2035%
+Source Step = 97.2479%
+Source Step = 97.2923%
+Source Step = 97.3366%
 vernier = 0.00219727
-Source Step = 97.5223%
-Source Step = 97.5889%
-Source Step = 97.6555%
-Source Step = 97.7221%
-Source Step = 97.7887%
+Source Step = 97.3966%
+Source Step = 97.4632%
+Source Step = 97.5297%
+Source Step = 97.5963%
+Source Step = 97.6629%
 vernier = 0.0032959
-Source Step = 97.8686%
-Source Step = 97.9685%
-Source Step = 98.0683%
-Source Step = 98.1682%
-Source Step = 98.2681%
+Source Step = 97.7495%
+Source Step = 97.8493%
+Source Step = 97.9492%
+Source Step = 98.0491%
+Source Step = 98.149%
 vernier = 0.00494385
-Source Step = 98.3829%
-Source Step = 98.5328%
-Source Step = 98.6826%
-Source Step = 98.8324%
-Source Step = 98.9822%
+Source Step = 98.2738%
+Source Step = 98.4236%
+Source Step = 98.5734%
+Source Step = 98.7233%
+Source Step = 98.8731%
 vernier = 0.00741577
-Source Step = 99.147%
-Source Step = 99.3717%
-Source Step = 99.5964%
-Source Step = 99.8211%
+Source Step = 99.0528%
+Source Step = 99.2776%
+Source Step = 99.5023%
+Source Step = 99.727%
+Source Step = 99.9517%
 Source stepping succeeded in finding the operating point.
 
-Total elapsed time: 1.039 seconds.
+Total elapsed time: 1.141 seconds.
 
 Files loaded:
 C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\carga_electronica\MK1.net
