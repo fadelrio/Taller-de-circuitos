@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Parámetros del archivo
-archivo = "esc_carg.csv"
+archivo = "esc_carg2.csv"
 puntos_totales = 64000
-tiempo_total = 10e-6 * 10  # 10 µs/div × 10 divisiones = 100 µs
+tiempo_total = 128e-6  # 10 µs/div × 10 divisiones = 100 µs
 
 # Leer archivo ignorando encabezado
 with open(archivo, "r", encoding="latin1") as f:
