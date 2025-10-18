@@ -2,15 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # === ARCHIVO DE ENTRADA ===
-archivo_csv = "alta.csv"  # <-- cambialo si el nombre es otro
+archivo_csv = "bajja.csv"  # <-- cambialo si el nombre es otro
 
 # === CONFIGURACIÓN DEL OSCILOSCOPIO ===
 puntos_totales_original = 32000
-tiempo_total_original = 800e-6  # <-- COMPLETAR si corresponde (ej: 50e-6, 500e-6, etc.)
+tiempo_total_original = 320e-5  # <-- COMPLETAR si corresponde (ej: 50e-6, 500e-6, etc.)
 
 # === PARÁMETROS DE RECORTE ===
-t_inicio_us = 300   # arranca en 300 µs del tiempo original
-t_fin_us_nuevo = 400  # termina a los 400 µs del nuevo eje (es decir, 700 µs del original)
+t_inicio_us = 0     # arranca en 300 µs del tiempo original
+t_fin_us_nuevo = 3200  # termina a los 400 µs del nuevo eje (es decir, 700 µs del original)
 
 # === LECTURA DE DATOS ===
 datos = []
@@ -32,14 +32,15 @@ if len(datos) == 0:
 
 datos = np.array(datos)
 
-# === CORRECCIÓN DE OFFSET Y ESCALA ===
-ch1 = datos[:, 0] - datos[0, 0]
+# === CORRECCIÓN DE OFFSET (RESTAR VALOR FINAL) ===
+ch1 = datos[:, 0] - datos[-1, 0]
 if datos.shape[1] > 1:
-    ch2 = datos[:, 1] - datos[0, 1]
+    ch2 = datos[:, 1] - datos[-1, 1]
 else:
     ch2 = None
 
-ch1 = ch1 / 1000.0  # pasar a V
+# === CONVERSIÓN A VOLTIOS ===
+ch1 = ch1 / 1000.0
 if ch2 is not None:
     ch2 = ch2 / 1000.0
 
@@ -60,14 +61,15 @@ if ch2 is not None:
 
 # === GRAFICAR ===
 plt.figure(figsize=(10, 5))
-plt.plot(t * 1e6, ch1, label="Tension de entrada", color="b")
+plt.plot(t * 1e3, ch1, label="Tensión de salida", color="b")
 if ch2 is not None:
-    plt.plot(t * 1e6, ch2, label="Tension de salida", color="r")
+    plt.plot(t * 1e3, ch2, label="Tensión de entrada", color="r")
 
-plt.xlabel("Tiempo [µs]")
+plt.xlabel("Tiempo [ms]")
 plt.ylabel("Tensión [V]")
 plt.title("Tiempo de encendido")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
