@@ -1689,12 +1689,6 @@
 		(uuid "898037d3-9a7a-4d6c-828b-f2486ecebdee")
 	)
 	(junction
-		(at 129.54 20.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ad2d2f1b-a026-4318-bbd7-1fab44beb94a")
-	)
-	(junction
 		(at 109.22 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1711,12 +1705,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f11f3e3b-5d49-4cf8-bc86-181b6ccc91fd")
-	)
-	(junction
-		(at 129.54 35.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fd73d87b-f161-4572-a55a-2a346e2f0a4f")
 	)
 	(wire
 		(pts
@@ -1737,16 +1725,6 @@
 			(type default)
 		)
 		(uuid "0a576abd-c0b4-4c61-ae68-b9dfd67c1c30")
-	)
-	(wire
-		(pts
-			(xy 121.92 35.56) (xy 129.54 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "159318e2-5aba-4cb4-9431-71f8ed88a85e")
 	)
 	(wire
 		(pts
@@ -1817,16 +1795,6 @@
 			(type default)
 		)
 		(uuid "4462d5cc-113e-4e54-a56e-d1254e8ea7b4")
-	)
-	(wire
-		(pts
-			(xy 121.92 24.13) (xy 121.92 20.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "449d33cb-8c42-4166-89f3-9acdbbc63ceb")
 	)
 	(wire
 		(pts
@@ -2080,16 +2048,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 20.32) (xy 129.54 20.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c063571f-ec4a-4220-b559-bd48948e4377")
-	)
-	(wire
-		(pts
 			(xy 109.22 50.8) (xy 109.22 60.96)
 		)
 		(stroke
@@ -2217,16 +2175,6 @@
 			(type default)
 		)
 		(uuid "ec7d16fd-0368-4db3-be01-f2dad5627c90")
-	)
-	(wire
-		(pts
-			(xy 121.92 31.75) (xy 121.92 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1ab1407-9212-41b0-b392-2f27ebbe5fc6")
 	)
 	(wire
 		(pts
@@ -3365,22 +3313,22 @@
 			)
 		)
 		(pin "5"
-			(uuid "9382b235-ca02-4752-bdd3-869c6226645d")
+			(uuid "9382b235-ca02-4752-bdd3-869c6226645e")
 		)
 		(pin "6"
-			(uuid "34573b9e-0b34-492a-a11b-410ee6b666b3")
+			(uuid "34573b9e-0b34-492a-a11b-410ee6b666b4")
 		)
 		(pin "4"
-			(uuid "b06893ab-9c03-451c-ad9e-70bde554f661")
+			(uuid "b06893ab-9c03-451c-ad9e-70bde554f662")
 		)
 		(pin "2"
 			(uuid "bd77a243-bbc6-4299-a637-b337715058b6")
 		)
 		(pin "7"
-			(uuid "039d382e-5444-4b38-a745-c10cbced8b10")
+			(uuid "039d382e-5444-4b38-a745-c10cbced8b11")
 		)
 		(pin "8"
-			(uuid "e1c3d472-8ee5-4541-8186-525d6012ef55")
+			(uuid "e1c3d472-8ee5-4541-8186-525d6012ef56")
 		)
 		(pin "3"
 			(uuid "426577c1-d45a-4d1f-bdbf-90c1104b9458")
@@ -4000,22 +3948,22 @@
 			)
 		)
 		(pin "5"
-			(uuid "9382b235-ca02-4752-bdd3-869c6226645d")
+			(uuid "9382b235-ca02-4752-bdd3-869c6226645f")
 		)
 		(pin "6"
-			(uuid "34573b9e-0b34-492a-a11b-410ee6b666b3")
+			(uuid "34573b9e-0b34-492a-a11b-410ee6b666b5")
 		)
 		(pin "4"
-			(uuid "b06893ab-9c03-451c-ad9e-70bde554f661")
+			(uuid "b06893ab-9c03-451c-ad9e-70bde554f663")
 		)
 		(pin "2"
 			(uuid "0dd80340-dabb-437d-91b6-298f49c50ae9")
 		)
 		(pin "7"
-			(uuid "039d382e-5444-4b38-a745-c10cbced8b10")
+			(uuid "039d382e-5444-4b38-a745-c10cbced8b12")
 		)
 		(pin "8"
-			(uuid "e1c3d472-8ee5-4541-8186-525d6012ef55")
+			(uuid "e1c3d472-8ee5-4541-8186-525d6012ef57")
 		)
 		(pin "3"
 			(uuid "d411dbdd-9488-48dc-bef7-82f54883f710")
@@ -4289,13 +4237,13 @@
 			)
 		)
 		(pin "4"
-			(uuid "8b0a745e-f7a8-4754-a2e8-4e3ca4b08804")
+			(uuid "8b0a745e-f7a8-4754-a2e8-4e3ca4b08805")
 		)
 		(pin "6"
-			(uuid "0e88530a-20b4-4bde-ae6f-c981bf80d76b")
+			(uuid "0e88530a-20b4-4bde-ae6f-c981bf80d76c")
 		)
 		(pin "5"
-			(uuid "a1f05530-28f0-4659-882a-a4507408641b")
+			(uuid "a1f05530-28f0-4659-882a-a4507408641c")
 		)
 		(pin "3"
 			(uuid "800023b6-1e87-4f6a-94fd-fbdd6bba5ce6")
@@ -4307,10 +4255,10 @@
 			(uuid "52638803-a14e-4a38-9a65-e600a2612d63")
 		)
 		(pin "7"
-			(uuid "c698a63e-20bf-4681-b30a-a19bb96d1f78")
+			(uuid "c698a63e-20bf-4681-b30a-a19bb96d1f79")
 		)
 		(pin "8"
-			(uuid "6eb58b7c-c655-48dd-be03-acd83f89f8a1")
+			(uuid "6eb58b7c-c655-48dd-be03-acd83f89f8a2")
 		)
 		(instances
 			(project "cuarto_check_oscilador"
@@ -4590,76 +4538,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 121.92 27.94 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cccdddc7-a803-4746-ade6-5ca495c6d37e")
-		(property "Reference" "C3"
-			(at 125.73 26.6699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "100n"
-			(at 125.73 29.2099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
-			(at 120.9548 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 121.92 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 121.92 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "986875a1-7d45-412d-ab94-868d708b11bc")
-		)
-		(pin "2"
-			(uuid "e753d0a9-e0e1-4f02-b0b1-781e3fee2ab0")
-		)
-		(instances
-			(project "cuarto_check_oscilador"
-				(path "/f1d7cffb-e76c-49bb-8693-53407790405e"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Comparator:LM393")
 		(at 96.52 73.66 0)
 		(mirror x)
@@ -4713,13 +4591,13 @@
 			)
 		)
 		(pin "4"
-			(uuid "8b0a745e-f7a8-4754-a2e8-4e3ca4b08804")
+			(uuid "8b0a745e-f7a8-4754-a2e8-4e3ca4b08806")
 		)
 		(pin "6"
-			(uuid "0e88530a-20b4-4bde-ae6f-c981bf80d76b")
+			(uuid "0e88530a-20b4-4bde-ae6f-c981bf80d76d")
 		)
 		(pin "5"
-			(uuid "a1f05530-28f0-4659-882a-a4507408641b")
+			(uuid "a1f05530-28f0-4659-882a-a4507408641d")
 		)
 		(pin "3"
 			(uuid "7b2895e3-6566-4e53-b634-73f64a1d9f53")
@@ -4731,10 +4609,10 @@
 			(uuid "4af3dac1-c8ce-4f71-9256-5c788eea325b")
 		)
 		(pin "7"
-			(uuid "c698a63e-20bf-4681-b30a-a19bb96d1f78")
+			(uuid "c698a63e-20bf-4681-b30a-a19bb96d1f7a")
 		)
 		(pin "8"
-			(uuid "6eb58b7c-c655-48dd-be03-acd83f89f8a1")
+			(uuid "6eb58b7c-c655-48dd-be03-acd83f89f8a3")
 		)
 		(instances
 			(project ""

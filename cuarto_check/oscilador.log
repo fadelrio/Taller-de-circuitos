@@ -1,6 +1,6 @@
 LTspice 24.1.10 for Windows
 Circuit: C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\cuarto_check\oscilador.net
-Start Time: Wed Oct 29 19:23:45 2025
+Start Time: Thu Oct 30 16:46:02 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -1241,7 +1241,7 @@ vernier = 0.0216977
 Source Step = 99.5093%
 Source stepping succeeded in finding the operating point.
 
-Total elapsed time: 5.627 seconds.
+Total elapsed time: 11.227 seconds.
 
 Files loaded:
 C:\users\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\cuarto_check\oscilador.net
