@@ -1,0 +1,68 @@
+LTspice 24.1.10 for Windows
+Circuit: Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\quinto_check\fuente_conmutada_2.net
+Start Time: Sun Nov 30 18:58:31 2025
+Options: cshunt=1e-15  abstol=1e-10  gmin=1e-10
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+gmin = 1e-10
+abstol = 1e-10
+Instance "u1:x_gd_template:x_ho_stage:M_HO_PMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u1:x_gd_template:x_ho_stage:M_HO_NMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u1:x_gd_template:x_lo_stage:M_LO_PMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u1:x_gd_template:x_lo_stage:M_LO_NMOS": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+Gmin = 0.995033
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195312
+vernier = 0.000976562
+Gmin = 1.00275
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 40.1515%
+Source Step = 47.7273%
+Source Step = 50.0089%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 50.1894%
+vernier = 0.015625
+Source stepping failed
+
+Pseudo Transient failed in finding the operating point at 5.00122 µs.
+Trouble finding operating point....skipping operating point for Transient analysis.
+Changing Tseed to 4.88281e-09
+Changing Tseed to 4.88281e-11
+Changing Tseed to 4.88281e-08
+Changing Tseed to 4.88281e-12
+Changing Tseed to 4.88281e-07
+Changing Tseed to 4.88281e-13
+Changing Tseed to 4.88281e-06
+Changing Tseed to 4.88281e-14
+Total elapsed time: 11.450 seconds.
+
+Files loaded:
+Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\quinto_check\fuente_conmutada_2.net
+C:\users\fadelrio\AppData\Local\LTspice\lib\cmp\standard.dio
+C:\users\fadelrio\AppData\Local\LTspice\lib\cmp\standard.mos
+Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\quinto_check\IR2104.lib
+Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\quinto_check\LM393A.lib
+C:\users\fadelrio\AppData\Local\LTspice\lib\sub\ADI.lib
+

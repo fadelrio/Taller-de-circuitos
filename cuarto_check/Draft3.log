@@ -1,0 +1,15 @@
+LTspice 24.1.10 for Windows
+Circuit: Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\cuarto_check\Draft3.net
+Start Time: Fri Nov 14 14:28:22 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.066 seconds.
+
+Files loaded:
+Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\cuarto_check\Draft3.net
+C:\users\fadelrio\AppData\Local\LTspice\lib\sub\ADI.lib
+
