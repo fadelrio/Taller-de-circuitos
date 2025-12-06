@@ -1,0 +1,68 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Primer Checkpoint}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introducción}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Regulador de Tensión}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Diagrama de bloques}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Elección del transistor de paso}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Primer diseño}{5}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Diseño con par diferencial}{6}{subsubsection.1.2.4}%
+\contentsline {paragraph}{\numberline {1.2.4.1}Polarización del par diferencial con fuente de corriente}{9}{paragraph.1.2.4.1}%
+\contentsline {subsection}{\numberline {1.3}Limite de corriente}{9}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Limite de corriente por foldback}{10}{subsubsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.4}Diseño final y esquemático del PCB}{11}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Eficiencia}{12}{subsubsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.5}Conclusiones}{12}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Apéndice}{13}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Segundo checkpoint}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introducción}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Compensación}{14}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Lazo de tensión}{14}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Lazo de corriente}{17}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Respuestas al escalón}{17}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Diseño del PCB}{22}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Análisis térmico}{23}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Conclusión}{24}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Tercer checkpoint}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introducción}{25}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Armado del circuito}{25}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Regulación de linea}{25}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Regulación de carga}{26}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Foldback}{27}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Eficiencia}{28}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Tiempo de respuesta}{29}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Resultados}{31}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Conclusiones}{31}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Anexo}{31}{subsection.3.10}%
+\contentsline {subsubsection}{\numberline {3.10.1}Propagación de errores}{31}{subsubsection.3.10.1}%
+\contentsline {paragraph}{\numberline {3.10.1.1}Error foldback}{32}{paragraph.3.10.1.1}%
+\contentsline {section}{\numberline {4}Cuarto checkpoint}{33}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introducción}{33}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Fuente buck}{33}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Diseño y simulación}{33}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Inductor}{35}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Eficiencia}{35}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Diseño de PCB}{36}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}Circuito PWM}{37}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Diseño y simulación}{37}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Diseño de PCB}{39}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Mediciones}{40}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Conclusiones}{41}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Apéndice}{42}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Calculo del inductor}{42}{subsubsection.4.5.1}%
+\contentsline {section}{\numberline {5}Quinto checkpoint}{44}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Introducción}{44}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Fuente Buck realimentada}{44}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Compensación}{45}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Caracterización del inductor}{48}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Corriente de saturación}{48}{subsubsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.5}Diseño PCB}{50}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Armado y prueba de etapas}{51}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Mediciones}{55}{subsection.5.7}%
+\contentsline {subsubsection}{\numberline {5.7.1}Respuesta temporal}{55}{subsubsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.2}Ripple}{58}{subsubsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.3}Eficiencia}{63}{subsubsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.8}Resultados}{63}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Conclusiones}{64}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}Apéndice}{64}{subsection.5.10}%
+\contentsline {subsubsection}{\numberline {5.10.1}Amplitud de la señal triangular}{64}{subsubsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.2}Cálculos de la compensación}{64}{subsubsection.5.10.2}%

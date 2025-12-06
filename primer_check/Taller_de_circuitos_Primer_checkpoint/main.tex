@@ -1,0 +1,495 @@
+% Basado en el template realizado por Diego Essaya, disponible en
+%                                                         http://lug.fi.uba.ar
+% Modificado por Sebastián Santisi.
+% 2007: Modificado por Patricio Moreno y Michel Peterson.
+% 2014: Modificado por Patricio Moreno.
+% 2017: Modificado por Patricio Moreno.
+% 2021: Modificado por Carla Sobico.
+% 2024: Modificado(simplificado) por Francisco Del Rio.
+
+% Acá se define el tamaño de letra principal:
+% Para utilizar los estilos de KOMA-script, desconectar la línea siguiente y
+% comentar la que le sigue (dejar sin comentar un único documentclass)
+%\documentclass[10pt, spanish]{scrartcl}
+\documentclass[a4paper, twoside, 10pt, spanish]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{pdflscape}
+% CONFIGURACIONES GENERALES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición del tamaño de página y los márgenes:
+% Si preferís menos márgenes, descomentá la línea siguiente
+%\usepackage[a4paper,headheight=16pt,scale={0.7,0.8},hoffset=0.5cm]{geometry}
+\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{babel}  % contiene la correcta separación en sílabas del español
+\usepackage[utf8x]{inputenc}    % porque el encoding del documento es UTF-8
+\usepackage[per-mode=fraction]{siunitx}
+\sisetup%
+{
+	output-decimal-marker = {,},
+	exponent-product = \cdot,
+    group-digits = integer,
+	group-separator = {.}
+}
+
+
+%
+% El paquete amsmath agrega algunas funcionalidades extra a las fórmulas.
+% Además defino la numeración de las tablas y figuras al estilo "Figura 2.3",
+% en lugar de "Figura 7". (Por lo tanto, aunque no uses fórmulas, si querés
+% este tipo de numeración dejá el paquete amsmath descomentado).
+%
+\usepackage{amsmath, amsfonts, amssymb}
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENCABEZADO y PIE DE PÁGINA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}   % Para poder personalizarlo
+\usepackage{lastpage}   % Para poder saber cuántas páginas tiene el documento
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
+\fancyhead{}	% Elimino el contenido del encabezado
+% Muestra la sección a la derecha (izquierda) en páginas impares (pares)
+\fancyhead[RO,LE]{\rightmark}
+% El siguiente texto a la derecha (izquierda) en páginas pares (impares)
+\fancyhead[RE,LO]{TA138 - Primer checkpoint}
+\fancyfoot{}	% Elimino el contenido del pie de página
+% A la izquierda (derecha) en páginas pares (impares): nro. de página / total
+\fancyfoot[LE,RO]{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hipervínculos (enlaces) en el documento (y modificación de atributos)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+\urlstyle{tt}
+\usepackage[colorlinks=true,linkcolor=black, urlcolor=blue]{hyperref}
+\hypersetup{
+    breaklinks,
+    baseurl       = http://,
+    pdfborder     = 0 0 0,
+    pdfpagemode   = UseNone,
+    pdfstartpage  = 1,
+    pdfcreator    = {Plantilla de informe de TP para \LaTeX{}},
+    bookmarksopen = true,
+    bookmarksdepth= 2,% to show sections and subsections
+    pdfauthor     = {Apellido~1, Apellido~2, Apellido~3},
+    pdftitle      = {-},
+    pdfsubject    = {Informe},
+    pdfkeywords   = {}%
+    }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LISTAS (para poder modificar los 'bullets' de las listas)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLAS (para que se vean bien)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMÁGENES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para incluir imágenes, el siguiente código carga el paquete graphicx
+% según se esté generando un archivo dvi o un pdf (con pdflatex).
+
+% Para generar dvi, descomentá la linea siguiente:
+%\usepackage[dvips]{graphicx}
+
+% Para generar pdf, descomentá las dos lineas seguientes:
+\usepackage{graphicx}
+\pdfcompresslevel=9
+
+% Todas las imágenes están en el directorio imgs:
+\newcommand{\imgdir}{imgs}
+\graphicspath{{\imgdir/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DIAGRAMAS DE FLUJO EN DIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Necesitas este paquete si haces los diagramas de flujo en el programa Dia
+% y exportás a latex
+%\usepackage{tikz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INSERCIÓN DE CÓDIGO FUENTE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% El paquete recomendado actualmente es minted.
+% Documentación: https://www.ctan.org/pkg/minted
+\usepackage[
+        section,    % Numera el código según la sección
+    ]{minted}
+% minted provee los comandos:
+% 1)  \mint[<opciones>]{<lenguaje>}<delimitador><código><delimitador>
+% 2)  \mintinline[<opciones>]{<lenguaje>}<delimitador><código><delimitador>
+% 3)  \inputminted[<opciones>]{<lenguaje>}{<archivo>}
+\setminted[c]{
+%        style=,
+        linenos,            % Mostrar los números de línea
+        numberfirstline,    % Numerar SIEMPRE la primera línea mostrada
+        tabsize=4,          % Reemplazar las tabulaciones por 4 espacios
+        autogobble          % Eliminar espacio sobrante al comienzo
+    }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMANDOS UTILES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% los siguientes comandos permiten escribir de manera uniforme en todo el
+% documento
+
+% Para poder manejar los espacios al final de los comandos propios
+\usepackage{xspace}
+
+% Abreviatura de 'número' utilizando letras voladas (correcto español)
+\newcommand{\Nro}{N.\textsuperscript{o}\xspace}
+\newcommand{\nro}{n.\textsuperscript{o}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES EXTRAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{multicol}
+%\usepackage{pdfpages}
+%\usepackage{subfigure}
+%\usepackage{graphicx}%
+\usepackage{gensymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INICIO DEL DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%
+% Carátula:
+%
+\begin{titlepage}
+
+\thispagestyle{empty}
+
+\begin{center}
+\includegraphics[scale=0.3]{res/fiuba.pdf}\\
+\large{\textsc{Universidad de Buenos Aires}}\\
+\large{\textsc{Facultad de Ingeniería}}\\
+% Modificar año y cuatrimestre
+\small{Año 2025 - 2\textsuperscript{o} cuatrimestre}
+\end{center}
+
+\vfill
+
+\begin{center} % Modificar el código de ser necesario
+\Large{\underline{\textsc{Taller de diseño de circuitos electrónicos (TA138)}}}\\
+\vspace{.5cm}
+ \Large{\textsc{Primer checkpoint - Sistema de alimentación para aplicaciones industriales y automotrices}}
+\end{center}
+
+\vfill
+
+ \begin{tabbing}
+
+	\\\hspace{2cm}\=\+\\ \\
+% %	FECHA : DD/MM/2019\\% \today\\
+%TUTOR: Lorem ipsum dolor sit amet, \\
+ \\
+	ESTUDIANTES: Grupo 4\hspace{-1cm}\=\+\hspace{1cm}\=\hspace{6cm}\=\\
+ 		Monti, Martina	\>\> 110574\\ 
+              \>\footnotesize{\verb!mmonti@fi.uba.ar!}\\
+            Martin, Andrés	\>\> 110122\\ 
+              \>\footnotesize{\verb!ammartin@fi.uba.ar!}\\
+            Loñ, Julieta	\>\> 110663\\ 
+              \>\footnotesize{\verb!jlon@fi.uba.ar!}\\
+            Del Rio, Francisco	\>\> 110761\\ 
+              \>\footnotesize{\verb!fadelrio@fi.uba.ar!}\\
+           
+ \end{tabbing}
+
+
+
+\vfill
+
+\hrule
+\vspace{0.2cm}
+
+% Modificar código de ser necesario
+\noindent\small{TA138 - Taller de diseño de circuitos electrónicos \hfill}
+
+\end{titlepage}
+
+%
+% Hago que las páginas se comiencen a contar a partir de aquí:
+%
+\setcounter{page}{1}
+
+%
+% Pongo el índice en una página aparte:
+%
+
+\tableofcontents
+\newpage
+%
+% Inicio del TP:
+%
+
+\section{Introducción}
+
+\quad En este trabajo se aplicarán los conceptos aprendidos en las clases teóricas. Se observará el comportamiento de distintas fuentes de alimentación lineales. En ellas, apoyados de teoría y pruebas empíricas se lograrán amplias mejoras para el diseño de la fuente. Se partirá de una fuente muy básica, dependiente de la temperatura de los componentes y variaciones de la $V_{IN}$ hasta una fuente capaz de limitar la potencia en casos extremos para no deteriorar los componentes de la fuente.
+
+\section{Regulador de Tensión}
+\quad Se busca obtener una tensión de salida estable de \SI{5}{V}, que presente poca variación ante grandes variaciones de la tensión de entrada, es decir buena regulación de linea. También se espera que la tensión se mantenga a medida que varía la corriente de salida dentro de cierto rango, es decir que presente una buena regulación de carga. A lo largo de esta sección se explicará el recorrido tomado para obtener estas especificaciones, tanto como qué se considera como ``bueno'' en ambos casos.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Diagrama de bloques}\label{sec:diagrama_de_bloques}
+\quad La mejor forma de estabilizar un parámetro de la salida es a través de un muestreo de éste parámetro y su comparación con una referencia, es decir, un sistema realimentado. Para nuestro caso, lo adecuado es muestrear tensión a la salida y sumar tensión a la entrada, de esta forma se acerca nuestro sistema a un amplificador ideal de tensión. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{res/esquema_diagrama_de_bloques.png}
+    \caption{Diagrama de bloques de el sistema realimentado}
+    \label{fig:esquema_diagrama_de_bloques}
+\end{figure}
+
+\quad Como se puede ver en el diagrama de bloques, la entrada al amplificador realimentado es $V_{ref}-V_{of}$, lo que implica realimentación negativa. Realimentando negativamente se consigue estabilizar el parámetro de interés a la salida, ya que si la ganancia de lazo $T = af$ es lo suficientemente grande, se tiene:
+
+$$V_o = \frac{a}{1+af}V_{ref}  \xrightarrow[af\gg1]{} \frac{V_{ref}}{f}$$ 
+
+\quad De esta forma, con un circuito diseñado para obtener la ganancia de lazo necesaria, la tensión de salida dependerá solamente de la referencia y de la realimentación, que en nuestro caso será un simple divisor resistivo.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Elección del transistor de paso}
+\quad Se necesita una corriente elevada a la salida, como no todos los transistores pueden controlar altas corrientes, y más adelante, un par diferencial no puede satisfacer por si mismo. La manera de resolver esto fue agregando un buffer de corriente en la forma de un Quasi-Darlington. A diferencia del Darlington el Quasi-Darlington permite que la caída de tensión sobre el transistor de paso sea mas chica, lo cual ayuda a tener un Low-Dropout. 
+
+\quad El transistor de paso es el encargado de dispar la mayor parte de la potencia del circuito por lo tanto al momento de elegirlo se buscaron transistores que puedan disipar la potencia necesaria, y que puedan soportar la corriente y tensión entres sus bornes requerida. La corriente máxima que pasa por el transistor sera \SI{1.5}{A} y la tensión de entrada puede variar entre \SI{9.5}{V} y \SI{24}{V}, usando esa información calculamos la potencia máxima como $P_{max} = I_{max}(Vin_{max}- \SI{5}{V}) = $ \SI{28.5}{W}
+
+\quad El valor de la ganancia de corriente también fue relevante en la elección, es necesario que esta no disminuya demasiado a altas corrientes. Este fue uno de los requisitos mas restrictivos ya que varias de las opciones disponibles cuando operan a \SI{1.5}{A} presentan una ganancia de corriente cercana a 10. 
+
+\quad Finalmente, la mayor limitación estuvo dada por la disponibilidad de los componentes en las casas de electrónica cercanas. Y en caso de que este disponible, el precio también se tuvo en cuenta. Se considero que el transistor elegido debía ser accesible de manera que se puedan comprar en cantidad y reemplazarlo en caso de ser necesario. 
+
+\quad En base a todo lo mencionado se eligió el transistor \textbf{MJE2955T} que cumple con todas las características mencionadas. Las necesidades de corriente, tensión y potencia son cubiertas por un gran margen. La variación de la ganancia de corriente se puede ver en el gráfico \ref{fig:datasheet_hfe}, en la corriente de operación presenta un valor cercano a 70.
+%ACA FOTITO DEL GRAFICO DE BETA PLISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS referencia grafico_beta
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{res/datasheet_hfe.png}
+    \caption{Caption}
+    \label{fig:datasheet_hfe}
+\end{figure}
+
+\quad El transistor de drive usado sera el \textbf{BC547}. Se seleccionó este transistor debido a que tiene una ganancia lo suficientemente alta y a la disponibilidad del modelo ya que es el mismo que sera utilizado para otros transistores presentes en el circuito. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Primer diseño}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{res/esquema_primer_circuito.png}
+    \caption{Primer diseño de regulador lineal de tensión}
+    \label{fig:esquema_primer_circuito}
+\end{figure}
+
+\quad Como primer diseño, se utilizó el circuito presentado en la figura \ref{fig:esquema_primer_circuito} el cual tiene ciertas limitaciones en comparación con el diseño final. En el gráfico de la \autoref{fig:graf_reglin_primer}, de regulación de linea se ve que hay una gran variación de la tensión de salida con respecto a variaciones de la tensión de entrada, obteniendo una variación de $\SI{23.6}{\frac{mV}{V}}$ y en el gráfico de la \autoref{fig:graf_regcar_primer}, de regulación de carga se puede apreciar la variación que tiene la tensión de salida frente a modificaciones del valor de la $R_{carga}$, obteniendo un valor de regulación de carga de \SI{358}{m\ohm}. Lo que se busca es lograr que la tensión de salida quede lo más estable posible en 5V independientemente del valor que tome la $R_{carga}$ y de las variaciones qué puede presentar $V_{in}$ por lo que el $\Delta V_{sal}$ con respecto a estas variables se quiere reducir lo mayor posible, y este modelo no cumple con este requerimiento. 
+
+\quad Otro problema que presenta este modelo es que las variaciones de $V_{be}$ forman parte de la tensión de referencia, lo cual provoca que frente a variaciones en por ejemplo la temperatura, la $V_{ref}$ cambie su valor, cambiando así también el valor de la tensión de salida puesto que $V_{salida}$ = $\frac{a}{1+T}$ * $V_{ref}$
+
+\quad Realizando la simulación de la ganancia de lazo se observa un valor de 30 veces. Esta simulación se realizó añadiendo un inductor entre $R_{f2}$ y $R_l$ (en el nodo de $R_{f2}$), un capacitor entre $R_{f2}$ y el inductor, y una fuente de tensión alterna que conecta a este capacitor con tierra. Teniendo en cuenta la ecuación de la \autoref{sec:diagrama_de_bloques}, la ganancia de lazo resulta, en cierta medida, comparable con 1, lo que explica el pobre desempeño en regulación de carga y linea. Esta ganancia es mejorable y esto se apreciará mejor en la comparación de la ganancia de lazo del par diferencial.
+ 
+\pagebreak
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{res/graf_reglin_primer.jpeg}
+    \caption{Regulación de linea del diseño}
+    \label{fig:graf_reglin_primer}
+\end{figure}
+
+\subsection{Diseño con par diferencial}
+Con el motivo de mejorar la regulación del circuito, disminuyendo las variaciones de $V_{sal}$ con respecto a la $R_{carga}$ y a $V_{in}$, se modificó el circuito de entrada con par diferencial permitiendo así tener un mejor rechazo en modo común y una mayor ganancia de lazo del sistema. También, se colocaron resistencias de 100 $\ohm$ en el emisor de la carga activa, estas sirven para arreglar futuros desapareamientos que podrían presentarse.
+
+\quad Al colorarle al par diferencial la carga activa, se ayuda a mejorar el rechazo de modo común, disminuyendo la ganancia del respectivo modo y a su vez aumentando el RRMC. 
+
+\quad Además, al usar un amplificador diferencial se consigue independizar la referencia de valores intrínsecos de los transistores, como la tensión base-emisor, que presentan altas variaciones con temperatura y otros parámetros.  
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{res/esquema_circuito_con_par_bloques.pdf}
+    \caption{Diseño con amplificador diferencial}
+    \label{fig:esquema_circuito_con_par_diferencial}
+\end{figure}
+
+\quad Como se puede ver en los bloques del circuito, la tensión de entrada al amplificador diferencial es $V_{Ref} - V_{oR}$, entonces la referencia de la realimentación depende solamente de la tensión $V_{ref}$, que más adelante se especificará cómo esta se puede obtener asegurando poca variación ante parámetros tanto externos como internos al circuito.
+
+\quad Si se compara la regulación de carga del primer diseño con el del par diferencial, se ve que el valor con este último circuito es más de 100 veces menor que el valor que se obtuvo con el primero diseño lo cual indica que nuestra $V_{out}$ tiene menores variaciones en función de la carga.
+
+\quad Además gracias a la carga activa el circuito tendrá un mayor rechazo de modo común por lo que se tendrá una mayor ganancia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{res/graf_regcar_par.jpeg}
+    \caption{Regulación de carga del diseño con par diferencial}
+    \label{fig:graf_regcar_par}
+\end{figure}
+
+\pagebreak
+
+\quad También está el gráfico de regulación de línea en el cual, comparando con el primer diseño, su valor corresponde a \SI{23.6}{mV} y en el diseño actual a \SI{2.86}{mV}. Esta disminución de su valor indica que la $V_{out}$ del diseño final presenta alrededor de 10 veces menos variaciones en función de la $V_{in}$ respecto al primer diseño. 
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{res/graf_reglin_par.jpeg}
+    \caption{Regulación de linea del diseño con par diferencial}
+    \label{fig:graf_reglin_par}
+\end{figure}
+
+\quad Ademas se calculó la ganancia de lazo, cortando el lazo en la base de Q2, dado que la resistencia de entrada al par diferencial es de aproximadamente \SI{25}{K\ohm}, entonces su efecto junto a la red de realimentación en la carga es despreciable. Se obtuvo un valor aproximado de T de 1000 veces. Luego se simuló esta misma y se obtuvo un valor de 708 veces, lo que implica un error de cálculos de aproximadamente un 30\%. Tal error puede atribuirse a la nula disponibilidad de valores de parámetros intrínsecos de los transistores, como son la tensión de early o la ganancia de corriente, la cual presenta gran dispersión.
+
+\quad Aún con el error de cálculos, los valores obtenidos son lo suficientemente mayores a 1 como para que la ganancia del sistema realimentado se pueda considerar $\frac{V_{ref}}{f}$ lo que, como se puede ver en los gráficos de regulación de linea y carga de las figuras \ref{fig:graf_regcar_par} y \ref{fig:graf_reglin_par} resulta en un parámetro mucho más estable a la salida ante variaciones de tensión de entrada y corriente de salida.
+
+
+\subsubsection{Polarización del par diferencial con fuente de corriente}
+
+
+\quad Para mejorar el rechazo de modo común y dejar una corriente fija para la polarización del circuito, se coloca una fuente de corriente polarizada con la misma tensión de referencia de la base de Q1, en el emisor del par. En el análisis para modo diferencial, ese punto es una tierra virtual por lo que no modifica la ganancia en ese modo pero, en modo común agregar la fuente de corriente, que presenta un alto valor de resistencia en los emisores del par, deriva en que la ganancia del modo común disminuya y por lo tanto que la RRMC aumente. 
+
+\pagebreak
+
+\section{Limite de corriente}
+
+
+\quad Al momento de hacer una fuente de alimentación hay que considerar todos los casos. Si no se coloca ningún limitador el circuito se podría dañar frente a diferentes situaciones; ya sea demasiada potencia requerida, cortocircuito, entre otros. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/esquema_reg_corriente.png}
+    \caption{Circuito con regulador de corriente}
+    \label{fig:esquema_reg_corriente}
+\end{figure}
+
+\quad En este circuito se observa que se utiliza un transistor BC547C un resistor de \SI{0.42}{\ohm} para crear un lazo de realimentación en el circuito. El transistor esta conectado de manera tal que cuando aparezca una caída de \SI{0.63}{V} en la resistencia previamente nombrada, se activa Q7. Notar que que \SI{0.63}{V} con una resistencia de \SI{0.42}{\ohm} equivale a una corriente de \SI{1.5}{A}, exactamente la corriente que queremos limitar. De esta forma, cumpliendo la Ley de corrientes de Kircchoff Q3 deja de recibir toda la corriente de la etapa anterior y un porcentaje de esa corriente lo toma Q7. Esto genera que el driver (Q3) del darlington no amplifique como antes y la corriente total que recibe la carga se mantiene en \SI{1.5}{A}. 
+
+%\quad Cabe resaltar que este efecto se genera con continuas variaciones. Cuando Q7 toma corriente, por Rs baja la corriente y por lo tanto Q7 se apaga. Luego vuelven a circular \SI{1.5}{A} en Rs y vuelve a prenderse Q7 para estabilizar una vez más la corriente. Este ciclo se cumple continuamente hasta que baje la corriente pedida.
+
+\pagebreak
+
+\subsection{Limite de corriente por foldback}
+Al llegar a la situación dónde circula la corriente máxima, el circuito de la sección anterior limita la corriente pero el transistor de paso está siendo constantemente exigido, ya que entre su colector y emisor circulan \SI{1.5}{A} y cae toda la tensión de entrada, por lo que la potencia disipada en éste transistor es máxima, y la no haber carga, no hay potencia aprovechada a la salida. Para evitar esto se utiliza otro limitador de corriente llamado Foldback. Este permite que, frente a la $V_{salmin}$, el limitador de corriente hará que la corriente que circule por el transistor Q6 no sea \SI{1.5}{A} y sea $I_{cc} = \SI{400}{mA}$. Este método funciona agregando al limitador original de la sección 3 un divisor resistivo el cual genera que el circuito se comporte (únicamente en la sección de foldback) según la siguiente ecuación:
+\begin{equation}
+    I_{SAL} = \frac{{(R_1 + R_2) * V_{BE}} + R_1 * V_{SAL}}{R_S * R_2}
+\end{equation}
+\quad Se observa que hay una relación lineal entre $I_S$ Y $V_s$, la cuál corresponde a la forma característica del limitador de corriente por foldback
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/esquema_foldback.png}
+    \caption{Circuito con regulador de corriente foldback}
+    \label{fig:esquema_foldback}
+\end{figure}
+
+\quad En el apéndice se puede ver el detalle de los cálculos utilizados para obtener los valores de las resistencias presentes el el bloque de foldback.
+
+\quad Luego, se simuló el circuito con la implementación del foldback, variando la carga a tensión de entrada constante, y se obtuvo la siguiente curva de corriente de salida contra tensión de salida:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{res/graf_foldback.jpeg}
+    \caption{Curva de foldback}
+    \label{fig:graf_foldback}
+\end{figure}
+
+\quad Se puede apreciar como, al disminuir $R_{carga} = \frac{V_o}{I_o}$, la corriente llega hasta un máximo de aproximadamente \SI{1.5}{A} y luego, al acercarse $R_{carga}$ a cero, la corriente disminuye hasta aproximadamente \SI{400}{mA}, disminuyendo la potencia disipada en el transistor de paso al cortocircuitar la salida.
+
+\section{Diseño final y esquemático del PCB}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\linewidth]{res/diagrama_kicad.png}
+    \caption{Esquemático del circuito en KiCad}
+    \label{fig:diagrama_kicad}
+\end{figure}
+
+\quad El valor de la resistencia que acompaña a la referencia fue elegido en base a la corriente necesaria para alimentar el circuito. Hacia la base del transistor Q1 la corriente es del orden del $\micro$A por lo tanto es despreciable y solo es necesario considerar la de la referencia. En la datasheet del TL431D para la configuración usada, se indica que la corriente puede variar entre \SI{0.5}{mA} y \SI{100}{mA} por lo tanto elige una resistencia de \SI{1}{K\ohm} que es un valor estándar y permite una corriente dentro de la permitida. 
+
+\quad Por otro lado, las resistencias en la carga activa del par permiten corregir desapareamientos entre las ramas, su valor deberá ser modificado luego de medir dichas diferencias de manera que se compensen. No debe ser un valor elevado ya que si tienen una caída muy grande, el par se podría meter en zona de corte. 
+
+\subsection{Eficiencia}
+
+\quad Manteniendo la tensión de entrada constante en \SI{9.5}{V}, se calculó la eficiencia para distintas corrientes de salida y se obtuvo el siguiente gráfico:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\linewidth]{res/graf_eficiencia.jpeg}
+    \caption{Eficiencia contra corriente de salida}
+    \label{fig:graf_eficiencia}
+\end{figure}
+
+\quad Como se puede ver, el gráfico tiene una forma similar al de la \autoref{fig:graf_foldback}, esto se debe a que cuando el comportamiento del circuito está dado por el foldback, la potencia disipada en la carga tiende a cero, hasta finalmente ser cero cuando la carga es un cortocircuito. Luego, la eficiencia para la zona de funcionamiento normal del regulador es levemente mayor al 50\%, lo cual resulta esperable, ya que en esa zona la eficiencia viene principalmente dada por la tensión de entrada al regulador, si la tensión de entrada se encontrara más cerca del limite superior la eficiencia sería mucho menor. Otra zona de interés es lo que ocurre a bajas corrientes de salida, ya que al disminuir la corriente de salida, esta se vuelve comparable con las corrientes de polarización del par diferencial y la referencia de tensión, que si bien son corrientes bajas y por lo tanto potencias disipadas bajas, comparadas con la potencia casi nula sobre la carga, hacen que la eficiencia tienda a cero.
+
+\section{Conclusiones}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\quad Los resultados obtenidos en este trabajo cumplen con lo esperado.
+Se logro obtener una regulación de linea y de carga con bajos valores, y la implementación de la regulación por foldback fue exitosa permitiendo limitar la corriente entre $I_{max}$ y $I_{cc}$.
+
+\quad Como cierre de este trabajo, nos llevamos el aprendizaje de buscar no solo que un circuito funcione sino que también sea eficiente. La oportunidad de aplicar temas vistos en materias anteriores en un circuito funcional permitió profundizar en nuestros aprendizajes, practicas y  criterio.
+
+\quad Se experimentó con el diseño y utilizando la teoría vista junto con simulaciones, se llegó un circuito eficiente y que cumple con los requisitos pedidos. 
+
+
+\section{Apéndice}
+\quad Para calcular el valor de las resistencias del circuito de foldback inicialmente se plantea la malla que contiene el $V_{be7}$.
+\begin{equation}
+    V_{be7} = V_{R_s} - V_{R_4} = R_s I_s - (V_o +R_sI_o) \frac{R_4}{R_4 +R_5}
+\end{equation}
+\quad Si se despeja $I_o$ 
+\begin{equation}
+    I_o = \frac{V_{be}}{R_s}(1+\frac{R_4}{R_5}) + \frac{V_oR_4}{R_s R_5}
+\end{equation}
+\quad Cuando $V_o = 0$, se obtiene $I_{cc}$
+\begin{equation} \label{eq:Icc}
+    Icc = \frac{V_{beON}}{R_s}(1+\frac{R_4}{R_5})
+\end{equation}
+\quad Considerando que se quiere operar a una corriente máxima de $I_o = 1.5 A$ por lo que la cuenta se limita teniendo en cuenta esa $I_{max}$
+\begin{equation}\label{eq:Imax}
+    I_{max} = \frac{V_{beON}}{R_s} (1+\frac{R_4}{R_5}) +\frac{V_oR_4}{R_sR_5}
+\end{equation}
+\quad Luego, se dividen \ref{eq:Imax} y \ref{eq:Icc} para obtener una relación entre $R_4$ y $R_5$.
+\begin{equation}
+    \frac{I_{max}}{I_{cc}} = 1 + \frac{V_o}{V_{BEON}}\frac{\frac{R_4}{R_5}}{1+\frac{R_4}{R_5}}
+\end{equation}
+\begin{equation}
+    \frac{I_{max}}{I_{cc}} = 1+\frac{V_o}{V_{BEON}}\frac{1}{1+\frac{R_5}{R_4}}
+\end{equation}
+\begin{equation}\label{eq:R5/R4}
+    \frac{R_5}{R_4} = \frac{V_o}{(\frac{I_{max}}{I_{cc}}-1)V_{BEON}}-1
+\end{equation}
+\quad Luego se despeja $R_{s}$ de \ref{eq:Icc} y se reemplaza usando \ref{eq:R5/R4} para obtener su valor
+\begin{equation}
+    R_s = \frac{V_{BEON}}{I_{cc}}(1+\frac{R_4}{R_5})
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,0 +1,500 @@
+% Basado en el template realizado por Diego Essaya, disponible en
+%                                                         http://lug.fi.uba.ar
+% Modificado por Sebastián Santisi.
+% 2007: Modificado por Patricio Moreno y Michel Peterson.
+% 2014: Modificado por Patricio Moreno.
+% 2017: Modificado por Patricio Moreno.
+% 2021: Modificado por Carla Sobico.
+% 2024: Modificado(simplificado) por Francisco Del Rio.
+
+% Acá se define el tamaño de letra principal:
+% Para utilizar los estilos de KOMA-script, desconectar la línea siguiente y
+% comentar la que le sigue (dejar sin comentar un único documentclass)
+%\documentclass[10pt, spanish]{scrartcl}
+\documentclass[a4paper, twoside, 10pt, spanish]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{pdflscape}
+% CONFIGURACIONES GENERALES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición del tamaño de página y los márgenes:
+% Si preferís menos márgenes, descomentá la línea siguiente
+%\usepackage[a4paper,headheight=16pt,scale={0.7,0.8},hoffset=0.5cm]{geometry}
+\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{babel}  % contiene la correcta separación en sílabas del español
+\usepackage[utf8x]{inputenc}    % porque el encoding del documento es UTF-8
+\usepackage[per-mode=fraction]{siunitx}
+\sisetup%
+{
+	output-decimal-marker = {,},
+	exponent-product = \cdot,
+    group-digits = integer,
+	group-separator = {.}
+}
+
+
+%
+% El paquete amsmath agrega algunas funcionalidades extra a las fórmulas.
+% Además defino la numeración de las tablas y figuras al estilo "Figura 2.3",
+% en lugar de "Figura 7". (Por lo tanto, aunque no uses fórmulas, si querés
+% este tipo de numeración dejá el paquete amsmath descomentado).
+%
+\usepackage{amsmath, amsfonts, amssymb}
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENCABEZADO y PIE DE PÁGINA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}   % Para poder personalizarlo
+\usepackage{lastpage}   % Para poder saber cuántas páginas tiene el documento
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
+\fancyhead{}	% Elimino el contenido del encabezado
+% Muestra la sección a la derecha (izquierda) en páginas impares (pares)
+\fancyhead[RO,LE]{\rightmark}
+% El siguiente texto a la derecha (izquierda) en páginas pares (impares)
+\fancyhead[RE,LO]{TA138 - Segundo checkpoint}
+\fancyfoot{}	% Elimino el contenido del pie de página
+% A la izquierda (derecha) en páginas pares (impares): nro. de página / total
+\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hipervínculos (enlaces) en el documento (y modificación de atributos)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+\urlstyle{tt}
+\usepackage[colorlinks=true,linkcolor=black, urlcolor=blue]{hyperref}
+\hypersetup{
+    breaklinks,
+    baseurl       = http://,
+    pdfborder     = 0 0 0,
+    pdfpagemode   = UseNone,
+    pdfstartpage  = 1,
+    pdfcreator    = {Plantilla de informe de TP para \LaTeX{}},
+    bookmarksopen = true,
+    bookmarksdepth= 2,% to show sections and subsections
+    pdfauthor     = {Apellido~1, Apellido~2, Apellido~3},
+    pdftitle      = {-},
+    pdfsubject    = {Informe},
+    pdfkeywords   = {}%
+    }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LISTAS (para poder modificar los 'bullets' de las listas)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLAS (para que se vean bien)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMÁGENES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para incluir imágenes, el siguiente código carga el paquete graphicx
+% según se esté generando un archivo dvi o un pdf (con pdflatex).
+
+% Para generar dvi, descomentá la linea siguiente:
+%\usepackage[dvips]{graphicx}
+
+% Para generar pdf, descomentá las dos lineas seguientes:
+\usepackage{graphicx}
+\pdfcompresslevel=9
+
+% Todas las imágenes están en el directorio imgs:
+\newcommand{\imgdir}{imgs}
+\graphicspath{{\imgdir/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DIAGRAMAS DE FLUJO EN DIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Necesitas este paquete si haces los diagramas de flujo en el programa Dia
+% y exportás a latex
+%\usepackage{tikz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INSERCIÓN DE CÓDIGO FUENTE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% El paquete recomendado actualmente es minted.
+% Documentación: https://www.ctan.org/pkg/minted
+\usepackage[
+        section,    % Numera el código según la sección
+    ]{minted}
+% minted provee los comandos:
+% 1)  \mint[<opciones>]{<lenguaje>}<delimitador><código><delimitador>
+% 2)  \mintinline[<opciones>]{<lenguaje>}<delimitador><código><delimitador>
+% 3)  \inputminted[<opciones>]{<lenguaje>}{<archivo>}
+\setminted[c]{
+%        style=,
+        linenos,            % Mostrar los números de línea
+        numberfirstline,    % Numerar SIEMPRE la primera línea mostrada
+        tabsize=4,          % Reemplazar las tabulaciones por 4 espacios
+        autogobble          % Eliminar espacio sobrante al comienzo
+    }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMANDOS UTILES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% los siguientes comandos permiten escribir de manera uniforme en todo el
+% documento
+
+% Para poder manejar los espacios al final de los comandos propios
+\usepackage{xspace}
+
+% Abreviatura de 'número' utilizando letras voladas (correcto español)
+\newcommand{\Nro}{N.\textsuperscript{o}\xspace}
+\newcommand{\nro}{n.\textsuperscript{o}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES EXTRAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{multicol}
+%\usepackage{pdfpages}
+%\usepackage{subfigure}
+%\usepackage{graphicx}%
+\usepackage{gensymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INICIO DEL DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%
+% Carátula:
+%
+\begin{titlepage}
+
+\thispagestyle{empty}
+
+\begin{center}
+\includegraphics[scale=0.3]{res/fiuba.pdf}\\
+\large{\textsc{Universidad de Buenos Aires}}\\
+\large{\textsc{Facultad de Ingeniería}}\\
+% Modificar año y cuatrimestre
+\small{Año 2025 - 2\textsuperscript{o} cuatrimestre}
+\end{center}
+
+\vfill
+
+\begin{center} % Modificar el código de ser necesario
+\Large{\underline{\textsc{Taller de diseño de circuitos electrónicos (TA138)}}}\\
+\vspace{.5cm}
+ \Large{\textsc{Segundo checkpoint - Sistema de alimentación para aplicaciones industriales y automotrices}}
+\end{center}
+
+\vfill
+
+ \begin{tabbing}
+
+	\\\hspace{2cm}\=\+\\ \\
+% %	FECHA : DD/MM/2019\\% \today\\
+%TUTOR: Lorem ipsum dolor sit amet, \\
+ \\
+	ESTUDIANTES: Grupo 4\hspace{-1cm}\=\+\hspace{1cm}\=\hspace{6cm}\=\\
+ 		Monti, Martina	\>\> 110574\\ 
+              \>\footnotesize{\verb!mmonti@fi.uba.ar!}\\
+            Martin, Andrés	\>\> 110122\\ 
+              \>\footnotesize{\verb!ammartin@fi.uba.ar!}\\
+            Loñ, Julieta	\>\> 110663\\ 
+              \>\footnotesize{\verb!jlon@fi.uba.ar!}\\
+            Del Rio, Francisco	\>\> 110761\\ 
+              \>\footnotesize{\verb!fadelrio@fi.uba.ar!}\\           
+ \end{tabbing}
+
+
+
+\vfill
+
+\hrule
+\vspace{0.2cm}
+
+% Modificar código de ser necesario
+\noindent\small{TA138 - Taller de diseño de circuitos electrónicos \hfill}
+
+\end{titlepage}
+
+%
+% Hago que las páginas se comiencen a contar a partir de aquí:
+%
+\setcounter{page}{1}
+
+%
+% Pongo el índice en una página aparte:
+%
+
+\tableofcontents
+\newpage
+%
+% Inicio del TP:
+%
+\section{Introducción}
+
+\quad Esta entrega se centrará en el análisis en frecuencia para el circuito presentado en la entrega anterior. El principal objetivo es asegurar la linealidad de la fuente para todas las frecuencias compensando el circuito, buscando así evitar oscilaciones y realimentaciones positivas no deseadas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compensación}
+
+\subsection{Lazo de tensión}
+
+\quad  Analizando el comportamiento de la ganancia de lazo en frecuencia, se puede apreciar en las figuras \ref{fig:lazo_tension_sin_compensar_1u} y \ref{fig:lazo_tension_sin_compensar_15u} que el circuito presenta un margen de fase negativo para los limites de capacidad de carga. El margen de fase negativo implica que existe una frecuencia para la cual la fase se encuentra desplazada $-180\degree$ respecto a la fase inicial y la ganancia es mayor a \SI{0}{dB}, lo que implica que la realimentación se vuelva positiva, resultando en un comportamiento inestable.
+
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=1\linewidth]{res/lazo_tension_sin_compensar_1u.jpeg} 
+    \caption{Diagrama de bode de T con capacidad de carga de \SI{1}{\micro F}} 
+    \label{fig:lazo_tension_sin_compensar_1u} 
+\end{figure}
+
+\vfill
+
+\pagebreak
+
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=1\linewidth]{res/lazo_tension_sin_compensar_15u.jpeg} \caption{Diagrama de bode de T con capacidad de carga de \SI{15}{\micro F}} 
+    \label{fig:lazo_tension_sin_compensar_15u} 
+\end{figure}
+
+\quad Se optó por usar el método de estabilización mediante corrimiento de polo dominante de la respuesta en frecuencia. Para realizar esto se agrega un capacitor seguido de una resistencia en el nodo dominante, como se puede ver en la \autoref{fig:compensado_sin_valores}. 
+
+%\quad En esa frecuencia, la realimentación del circuito se vuelve positiva y por ende podría oscilar. Este efecto se produce ya que existe una rotación de fase de 180° para valores de $\left| T \right|$ mayores a 1 y es muy peligroso ya que provocaría alinealidad de la fuente. Para evitar este efecto se decidió compensar el circuito. Para ello se debió introducir un capacitor de compensación y una resistencia serie a este a común en el nodo dominante formando el siguiente circuito.
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=.8\linewidth]{res/compensado sin valores.jpg} 
+    \caption{Esquemático con red de compensación} \label{fig:compensado_sin_valores} 
+\end{figure}
+
+\quad Para seleccionar el valor del capacitor y de la resistencia, se analizaron los nodos identificando el dominante y mediante simulación se buscó obtener una respuesta en frecuencia deseada colocando una combinación de valores de R y C que muevan el polo dominante. El capacitor utilizado es de \SI{33}{nF} junto con una resistencia de \SI{100}{\ohm}.
+
+\quad Como se puede ver en las Figuras \ref{fig:lazo_tension_compensado_1u} y \ref{fig:lazo_tension_compensado_15u}, el margen de fase obtenido es, en el mejor caso de $103\degree$ y en el peor caso de $37\degree$. De esta forma, se soluciona la posibilidad de inestabilidad mencionada al principio de la sección ya que, para la frecuencia a la que la fase se encuentra desplazada $-180\degree$ respecto a la fase inicial, la ganancia es mucho menor a \SI{0}{dB}
+
+%Al ser la frecuencia de corte superior inversamente proporcional $R\cdot C$, a mayor $R\cdot C$, disminuye el valor del polo dominante hacia $(\frac {1} {RC})$ y finalmente aumenta el margen de fase del circuito, dejando la ganancia en <<VALOR>> al momento de tener una rotación de 180°
+%\quad El margen de fase que tiene el circuito de tensión en el peor caso que es con una capacitancia de 15u es de 40° y en el mejor caso, es de... con una capacitancia de tantos C micros
+%%foto de margen de fase de tensión
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{res/lazo_tension_compensado_1u.jpeg}
+    \caption{Diagrama de bode de T compensado, con capacidad de carga de \SI{1}{\micro F}}
+    \label{fig:lazo_tension_compensado_1u}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{res/lazo_tension_compensado_15u.jpeg}
+    \caption{Diagrama de bode de T compensado, con capacidad de carga de \SI{15}{\micro F}}
+    \label{fig:lazo_tension_compensado_15u}
+\end{figure}
+
+\subsection{Lazo de corriente}
+
+\quad Otro aspecto del circuito en el que se debe analizar la estabilidad es el lazo de control de corriente, para esto se simuló la respuesta en frecuencia de la ganancia de lazo de corriente en los casos limites de capacidad de carga, obteniendo los gráficos de las Figuras \ref{fig:lazo_corriente_1u} y \ref{fig:lazo_corriente_15u}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/lazo_corriente_1u.jpeg}
+    \caption{Lazo de corriente con capacidad de carga de \SI{1}{\micro F}}
+    \label{fig:lazo_corriente_1u}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/lazo_corriente_15u.jpeg}
+    \caption{lazo de corriente con capacidad de carga de \SI{15}{\micro F}}
+    \label{fig:lazo_corriente_15u}
+\end{figure}
+
+\quad Como se puede ver, en ambos casos el circuito ya presenta un margen de fase lo suficientemente grande como para no tener compromisos de estabilidad. Por esto es que se optó por no compensar este lazo. 
+
+
+\subsection{Respuestas al escalón}
+
+\quad Además de las respuestas en frecuencia del circuito se analizaron las respuestas transitorias a perturbaciones de tipo escalón. Se simularon las respuestas a escalones sin compensar en la entrada, en la referencia y en la carga, en ambos limites de capacidad de carga. Se obtuvieron las siguientes figuras:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ent_1u_sc.jpeg}
+    \caption{Respuesta a escalón de entrada con \SI{1}{\micro F} de capacidad de carga}
+    \label{fig:esc_ent_1u_sc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ent_15u_sc.jpeg}
+    \caption{Respuesta a escalón de entrada con \SI{15}{\micro F} de capacidad de carga}
+    \label{fig:esc_ent_15u_sc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_carg_1u_sc.jpeg}
+    \caption{Respuesta a escalón de carga con \SI{1}{\micro F} de capacidad de carga}
+    \label{fig:esc_carg_1u_sc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_carg_15u_sc.jpeg}
+    \caption{Respuesta a escalón de carga con \SI{15}{\micro F} de capacidad de carga}
+    \label{fig:esc_carg_15u_sc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ref_1u_sc.jpeg}
+    \caption{Respuesta a escalón de referencia con \SI{1}{\micro F} de capacidad de carga}
+    \label{fig:esc_ref_1u_sc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ref_15u_sc.jpeg}
+    \caption{Respuesta a escalón de referencia con \SI{15}{\micro F} de capacidad de carga}
+    \label{fig:esc_ref_15u_sc}
+\end{figure}
+
+\quad Las respuestas al escalón resultan coherentes con las respuestas en frecuencia del circuito sin compensar, ya que se aprecian respuestas oscilatorias inestables.
+
+\quad Luego se simularon las mismas respuestas en el circuito compensado obteniendo los siguientes gráficos:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ent_1u.jpeg}
+    \caption{Respuesta a escalón de entrada con \SI{1}{\micro F} de capacidad de carga}
+    \label{fig:esc_ent_1u}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ent_15u.jpeg}
+    \caption{Respuesta a escalón de entrada con \SI{15}{\micro F} de capacidad de carga}
+    \label{fig:esc_ent_15u}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_carg_1u.jpeg}
+    \caption{Respuesta a escalón de carga con \SI{1}{\micro F} de capacidad de carga}
+    \label{fig:esc_carg_1u}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_carg_15u.jpeg}
+    \caption{Respuesta a escalón de carga con \SI{15}{\micro F} de capacidad de carga}
+    \label{fig:esc_carg_15u}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ref_1u.jpeg}
+    \caption{Respuesta a escalón de referencia con \SI{1}{\micro F} de capacidad de carga}
+    \label{fig:esc_ref_1u_sc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{res/esc_ref_15u.jpeg}
+    \caption{Respuesta a escalón de referencia con \SI{15}{\micro F} de capacidad de carga}
+    \label{fig:esc_ref_15u}
+\end{figure}
+
+\quad Es evidente la diferencia al compensar el circuito, principalmente ya no se presenta comportamiento oscilatorio indefinido. Si bien las respuestas presentan sobrepico en muchos casos, el escalón se establece en el orden de las decenas de $\micro s$ en los mejores casos y en el orden de las centenas de $\micro s$ en los peores casos.  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Diseño del PCB}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/esquematico_imagen_chck2.jpeg}
+    \caption{Esquemático de PCB}
+    \label{fig:esquemático_de_PCB}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/placa_pcb_check2.jpeg}
+    \caption{Placa PCB}
+    \label{fig:placa_PCB}
+\end{figure}
+
+\quad La principal consideración al momento de diseñar la placa fue mantener separada la etapa de potencia del resto del circuito para evitar con mayor seguridad que haya alta potencia en donde pueda ser perjudicial. Además las pistas de esa etapa son de mayor tamaño- \SI{1.5}{mm}- que permite que los altos niveles de corriente circulen sin problemas de sobrecalentamiento, evitando daños. 
+
+\quad Se tuvo en cuenta que es importante evitar el ruido en el par diferencial, ya que cualquier señal diferencial entre las ramas sera amplificada a la salida de este. Por lo tanto se busco tener alejadas las principales fuentes de ruido, la $V_{in}$ y la etapa de potencia. 
+
+\quad También se agregaron puntos de prueba en nodos estratégicos del circuito para luego poder medir y comprobar que el funcionamiento sea el esperado. Lo mismo se hizo con los jumpers ubicados de manera que se pueda seccionar el circuito según sea necesario. 
+
+\quad Por ultimo se reemplazó la fuente de corriente de polarización del par diferencial por una fuente espejo, ya que teniendo en cuenta la dispersión de parámetros de los transistores, esta ultima resulta más estable y exacta. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{res/placoide.jpg}
+    \caption{Vista 3D de placa PCB}
+    \label{fig:vista_3d}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Análisis térmico}
+\quad Donde mayor potencia se disipa en el circuito es en el transistor de paso, como se vio en la primera entrega, razón por la cual se eligió un transistor de potencia. Sin embargo, cuando la tensión y corriente son máximas en el transistor, la potencia también lo es y por lo tanto hay que controlarla. 
+
+\quad La forma de lograr lo dicho es con un disipador térmico. Se deben considerar las resistencias térmicas del dispositivo, teniendo en cuenta que cuanto menor es el valor de la resistencia, mejor disipa el calor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\linewidth]{res/Vtermica.jpg}
+    \caption{Circuito térmico}
+    \label{fig:circ_termico}
+\end{figure}
+
+\quad A partir del circuito se puede plantear la relación termica entre el ambiente y la juntura.
+\begin{equation} \label{eq:resis_termica}
+    {\theta}_{ja} = {\theta}_{jc} + {\theta}_{cs} + {\theta}_{sa}
+\end{equation}
+\quad De la hoja de datos se obtienen los datos de $T_j = 150 \degree C$ y ${\theta}_{jc} = 1,67\frac{\degree C}{W}$. La temperatura ambiente, $T_a =50 \degree C$, se fija considerando que la temperatura en el circuito puede ser mas elevada que la del ambiente si se usa un gabinete. Finalmente, se aproxima ${\theta}_{cs} = 0 \frac{\degree C}{W}$ por el uso de la pasta térmica. 
+
+\quad Para calcular ${\theta}_{ja}$ se usa la expresión
+\begin{equation}
+    {\theta}_{ja} = \frac{T_j-T_a}{P_{c_{max}}}
+\end{equation}
+\quad El valor de la potencia máxima se calcula considerando que al regulador entran como máximo \SI{9.5}{V} y la corriente máxima que circula por el transistor es \SI{1.5}{A}, por lo tanto $P_{c_{max}} = 7W$. 
+
+\quad Por precaución se considera el 80\% de la temperatura de juntura para no sobre exigir al componente, por lo tanto $T_j = 120 \degree C$
+
+\quad Finalmente de la \ref{eq:resis_termica} se despeja el valor de ${\theta}_{sa}$ 
+\begin{equation}
+    {\theta}_{sa} = \frac{T_j-T_a}{P_{c_{max}}} - {\theta}_{jc} - {\theta}_{cs} = 10 \frac{\degree C}{W} - 1,67 \frac{\degree C}{W} = 8.33 \frac{\degree C}{W}
+\end{equation}
+\quad Considerando este valor se busco entre los valores comerciales disponibles y se opto por el disipador \textbf{D-6225T}. Este tiene una resistencia térmica de \SI{8.80}{\frac{\degree C}{W}}. Si bien el valor es levemente mayor al calculado, se considera que esa diferencia es despreciable debido al gran margen que se tomo al obtener los valores. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusión}
+
+\quad Durante el desarrollo de este proyecto se pudo compensar el circuito para evitar oscilaciones a ciertas frecuencias y lograr un margen de fase mayor a los 45°. Esto pudo realizarse tanto para el lazo de corriente como para el lazo de tensión. Para el lazo de tensión se debió de utilizar un capacitor en serie con una resistencia para cumplir el objetivo. Mientras que, el lazo de corriente ya cumplía con el margen de fase mayor a 45° por lo que no se debió realizar modificación alguna sobre el circuito.
+
+\quad Se diseño una placa PCB para poder implementar lo diseñado por medio de simulaciones. Además se realizo la renderización en 3D para poder observar la distribución final del circuito. 
+
+\quad Los cálculos realizados para obtener el valor de la resistencia térmica necesaria permitieron encontrar un disipador comercial que cumpla con los requisitos. De esta manera se logro asegurar que la potencia necesaria para el funcionamiento del circuito no genere daños en el mismo.
+\end{document}

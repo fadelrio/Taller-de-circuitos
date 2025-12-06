@@ -1,6 +1,6 @@
 LTspice 24.1.10 for Windows
 Circuit: Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\quinto_check\fuente_conmutada_2.net
-Start Time: Sun Nov 30 18:58:31 2025
+Start Time: Wed Dec  3 14:43:49 2025
 Options: cshunt=1e-15  abstol=1e-10  gmin=1e-10
 solver = Normal
 Maximum thread count: 16
@@ -9,10 +9,10 @@ temp = 27
 method = modified trap
 gmin = 1e-10
 abstol = 1e-10
-Instance "u1:x_gd_template:x_ho_stage:M_HO_PMOS": Length shorter than recommended for a level 1 MOSFET.
-Instance "u1:x_gd_template:x_ho_stage:M_HO_NMOS": Length shorter than recommended for a level 1 MOSFET.
-Instance "u1:x_gd_template:x_lo_stage:M_LO_PMOS": Length shorter than recommended for a level 1 MOSFET.
-Instance "u1:x_gd_template:x_lo_stage:M_LO_NMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:x_gd_template:x_ho_stage:M_HO_PMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:x_gd_template:x_ho_stage:M_HO_NMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:x_gd_template:x_lo_stage:M_LO_PMOS": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:x_gd_template:x_lo_stage:M_LO_NMOS": Length shorter than recommended for a level 1 MOSFET.
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
 Starting Gmin stepping
 Gmin = 10
@@ -56,7 +56,7 @@ Changing Tseed to 4.88281e-07
 Changing Tseed to 4.88281e-13
 Changing Tseed to 4.88281e-06
 Changing Tseed to 4.88281e-14
-Total elapsed time: 11.450 seconds.
+Total elapsed time: 11.090 seconds.
 
 Files loaded:
 Z:\home\fadelrio\Documents\Ingenieria\Taller de circuitos\TP\quinto_check\fuente_conmutada_2.net
